@@ -9,12 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.Entity;
+using System.Net.Http;
+using System.Security.Principal;
 
 namespace WindowsFormsApp1
 {
+    
     public partial class Sign_up : Form
     {
-        DataBase database = new DataBase();
+
+
+        readonly DataBase database = new DataBase();
         public Sign_up()
         {
             InitializeComponent();
@@ -32,37 +37,42 @@ namespace WindowsFormsApp1
         //Кнопка регистрация + логика
         private void button1_Click(object sender, EventArgs e)
         {
+            
             if (checkUser())
 
             {
                 return;
             }
+            
 
             var login = textBox_login2.Text;
             var password = textBox_password2.Text;
+           
             string querystring = $"insert into register(login_user, password_user,is_admin) values('{login}', '{password}', 0)";
 
             SqlCommand command = new SqlCommand(querystring, database.GetConnection());
 
             database.openConnection();
 
-            if (command.ExecuteNonQuery() == 1)
+            if (command.ExecuteNonQuery() == 1 && login.Length >= 4 && password.Length >= 6 )
             {
                 MessageBox.Show("Аккаунт успешно создан!", "Успешно!");
                 panel_of_admin frm_login = new panel_of_admin();
-               
+                this.Hide();
                 frm_login.ShowDialog();
+                
                 Close();
             }
 
 
             else
             {
-                MessageBox.Show("Аккаунт не создан!");
+                MessageBox.Show("Аккаунт не создан! - Проверьте длину пароля или логина, а также убедитесь, что аккаунт ещё не существует");
 
             }
             database.closeConnection();
         }
+        
         //Проверка зарегистрирован ли человек
         private Boolean checkUser()
         {
@@ -92,10 +102,7 @@ namespace WindowsFormsApp1
 
             }
         }
-        /* private void sign_up_Load(object sender, EventArgs e)
-        {
-            textBox_password2.PasswordChar = '*';
-        }
+        /*
 
         private void button2_Click(object sender, EventArgs e)
         {

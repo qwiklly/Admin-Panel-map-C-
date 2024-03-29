@@ -13,17 +13,18 @@ namespace WindowsFormsApp1
 {
     public partial class panel_of_admin : Form
     {
-        DataBase database = new DataBase();
+        readonly DataBase database = new DataBase();
         public panel_of_admin()
         {
             InitializeComponent();
             
+
         }
 
         private void panel_of_admin_Load(object sender, EventArgs e)
         {
-            
-    
+
+            this.WindowState = FormWindowState.Maximized;
             CreateColums();
             RefreshDataGrid();
 
@@ -66,21 +67,9 @@ namespace WindowsFormsApp1
         }
         
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-
-        }
+        
         //button save
         private void button7_Click(object sender, EventArgs e)
         {
@@ -103,19 +92,29 @@ namespace WindowsFormsApp1
         //button delete
         private void button8_Click(object sender, EventArgs e)
         {
+
             database.openConnection();
 
             var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
 
             var id = Convert.ToInt32(dataGridView1.Rows[selectedRowIndex].Cells[0].Value);
-            
-            var deleteQuery = $"DELETE FROM register WHERE id_user = '{id}'";
+            var isAdmin = Convert.ToBoolean(dataGridView1.Rows[selectedRowIndex].Cells[3].Value);
 
-            var command = new SqlCommand(deleteQuery, database.GetConnection());
-            command.ExecuteNonQuery();
+            // Проверяем, является ли пользователь администратором
+            if (isAdmin)
+            {
+                MessageBox.Show("Нельзя удалить администратора!");
+            }
+            else
+            {
+                var deleteQuery = $"DELETE FROM register WHERE id_user = '{id}'";
 
-            database.closeConnection();
-            RefreshDataGrid();
+                var command = new SqlCommand(deleteQuery, database.GetConnection());
+                command.ExecuteNonQuery();
+
+                database.closeConnection();
+                RefreshDataGrid();
+            }
         }
         //Переход на вкладку с картой
         private void button1_Click_1(object sender, EventArgs e)
@@ -127,18 +126,19 @@ namespace WindowsFormsApp1
             Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
+        
 
-        }
-
+        //add user
         private void button6_Click(object sender, EventArgs e)
         {
-            Sign_up form1 = new Sign_up();
             
+            Sign_up form1 = new Sign_up();
+            this.Hide();
             form1.ShowDialog();
             this.Show();
             Close();
         }
+
+
     }
 }

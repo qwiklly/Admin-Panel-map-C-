@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using WindowsFormsApp2;
+
+
 
 namespace WindowsFormsApp1
 {
     public partial class login : Form
     {
-        DataBase database = new DataBase();
+
+        readonly DataBase database = new DataBase();
 
         public login()
         {
@@ -31,12 +33,14 @@ namespace WindowsFormsApp1
 
         }
         private Label label12;
-        private readonly CheckUser _user;
+        
         //Логика при нажатии на кнопку вход
         private void button1_Click(object sender, EventArgs e)
         {
+            
             var loginUser = textBox_login.Text;
             var passUser = textBox_password.Text;
+
 
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
@@ -75,16 +79,8 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void textBox_password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        /*private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-{
-sign_up frm_sign = new sign_up();
-frm_sign.Show();
-this.Hide();
-}*/
+        
+        
 
     }
 }
