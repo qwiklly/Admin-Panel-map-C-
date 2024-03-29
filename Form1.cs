@@ -223,6 +223,7 @@ namespace WindowsFormsApp1
         {
             this.WindowState = FormWindowState.Maximized;
         }
+
         //Добавление маркера при двойном нажатии
         private void map_MouseDoubleClick(object sender, MouseEventArgs e)
         {

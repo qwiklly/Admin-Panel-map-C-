@@ -23,7 +23,6 @@ namespace WindowsFormsApp1
 
         private void panel_of_admin_Load(object sender, EventArgs e)
         {
-
             this.WindowState = FormWindowState.Maximized;
             CreateColums();
             RefreshDataGrid();

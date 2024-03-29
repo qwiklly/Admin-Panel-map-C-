@@ -28,7 +28,6 @@ namespace WindowsFormsApp1
         //Пароль - длина+звездочки
         private void Register1_Load(object sender, EventArgs e)
         {
-            
                 textBox_password2.PasswordChar = '*';
                 textBox_login2.MaxLength = 50;
                 textBox_password2.MaxLength = 50;

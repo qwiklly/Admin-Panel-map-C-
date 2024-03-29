@@ -71,7 +71,6 @@ namespace WindowsFormsApp1
                 }
             }
 
-
             else
             {
                 MessageBox.Show("Такого аккаунта не существует!", "Аккаунта не существует!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
