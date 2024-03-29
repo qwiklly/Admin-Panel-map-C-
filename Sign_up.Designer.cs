@@ -42,7 +42,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(159, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 39);
+            this.label1.Size = new System.Drawing.Size(211, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "Регистрация";
             // 
@@ -62,7 +62,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(166, 211);
+            this.button1.Location = new System.Drawing.Point(160, 211);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(207, 66);
             this.button1.TabIndex = 3;

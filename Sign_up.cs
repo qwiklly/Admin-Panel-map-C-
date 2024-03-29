@@ -34,6 +34,7 @@ namespace WindowsFormsApp1
                 textBox_password2.MaxLength = 50;
 
         }
+
         //Кнопка регистрация + логика
         private void button1_Click(object sender, EventArgs e)
         {
@@ -102,6 +103,7 @@ namespace WindowsFormsApp1
 
             }
         }
+
         /*
 
         private void button2_Click(object sender, EventArgs e)

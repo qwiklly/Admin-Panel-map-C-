@@ -96,7 +96,7 @@
             this.button1.Location = new System.Drawing.Point(-11, 62);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(372, 83);
+            this.button1.Size = new System.Drawing.Size(372, 87);
             this.button1.TabIndex = 5;
             this.button1.Text = "карта";
             this.button1.UseVisualStyleBackColor = false;
@@ -142,7 +142,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Status: Admin";
             this.label1.UseCompatibleTextRendering = true;
-            
             // 
             // label2
             // 

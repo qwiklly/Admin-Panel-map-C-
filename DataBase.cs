@@ -26,6 +26,7 @@ namespace WindowsFormsApp1
                 sqlConnection.Close();
             }
         }
+
         public SqlConnection GetConnection()
         {
             return sqlConnection;

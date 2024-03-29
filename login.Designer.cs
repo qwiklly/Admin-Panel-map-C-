@@ -79,7 +79,6 @@
             this.textBox_password.Name = "textBox_password";
             this.textBox_password.Size = new System.Drawing.Size(100, 22);
             this.textBox_password.TabIndex = 4;
-            
             // 
             // button1
             // 
